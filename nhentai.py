@@ -51,5 +51,5 @@ class Nhentai():
         return parsed_response
 
     def book_info(self, book_id):
-        url = self.BASE_URL + "gallery/" + book_id
+        url = self.BASE_URL + "gallery/" + str(book_id)
         return self.make_request(url)
