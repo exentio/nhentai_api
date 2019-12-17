@@ -14,6 +14,8 @@ It's still a WIP, so be careful.
 In case of a request error (like 404 or similar) or invalid input, the output is `{"error": True}`. This behavior was chosen because it's the same output that nHentai APIs give on error. Let me know if it's not good practice.  
 
 ### TODO
++ Use objects instead of dicts. Which means don't use this wrapper expecting for things not to change.  
++ More documentation about the output of the APIs.  
 + Search by tag. nHentai APIs use tag IDs instead of words, so I have to find a way to find the ID that matches a certain tag. I think I'll go with scraping them from the `/tags` page.  
 + Pages and covers.  
 + Selective data. Like getting all the tags, the group name, the parody, and stuff like this.  
