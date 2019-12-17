@@ -28,11 +28,10 @@ class Nhentai():
         return parsed_response
 
     def latest(self):
-        all_parsed_response = self.all()
-        return all_parsed_response["result"][0]
+        return self.all()["result"][0]
 
     def latest_id(self):
-        return self.latest()["id"]
+        return int(self.latest()["id"])
 
     def query_search(self, user_query, page_num=1):
         query = urllib.parse.quote(user_query, safe='')
