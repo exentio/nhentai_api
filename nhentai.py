@@ -64,12 +64,16 @@ class Nhentai():
         return self.make_request(url)
 
     def book_title(self, book_id):
-        raw_data = self.book_info(book_id)["title"]
-        return raw_data["english"]
+        title = self.book_info(book_id)["title"]["english"]
+        if len(title) == 0:
+            title = "N/A"
+        return title
 
     def book_title_jp(self, book_id):
-        raw_data = self.book_info(book_id)["title"]
-        return raw_data["japanese"]
+        title = self.book_info(book_id)["title"]["japanese"]
+        if len(title) == 0:
+            title = "N/A"
+        return title
 
     def book_cover(self, book_id):
         media_id = self.book_info(book_id)["media_id"]

@@ -11,8 +11,8 @@ It's still a WIP, so be careful.
 `Nhentai().id_exists(book_id)`: Checks the existence of a book by ID. Returns `bool`.  
 `Nhentai().query_search(user_query, page_num=1)`: Performs a search. Put your keywords in `user_query`; to get the other pages, use the `page_num` parameter. Returns `dict`.  
 `Nhentai().book_info(book_id)`: Gets all the info about a magic number of your choice, like `177013`. Returns `dict`.  
-`Nhentai().book_title(book_id)`: Gets the book title, english format. Returns `str`.  
-`Nhentai().book_title_jp(book_id)`: Gets the book title, japanese format. Returns `str`.  
+`Nhentai().book_title(book_id)`: Gets the book title, english format. Returns `str`. If there's no english title, the returned string is `N\A`.  
+`Nhentai().book_title_jp(book_id)`: Gets the book title, japanese format. Returns `str`. If there's no english title, the returned string is `N\A`.  
 `Nhentai().book_cover(book_id)`: Gets the URL of the cover of a book (a `.jpg` image). Returns `str`.  
 `Nhentai().book_pagenum(book_id)`: Gets the number of pages of a book. Returns `int`.  
 `Nhentai().book_date(book_id, return_string = False)`: Gets the date of a book. Returns an Unix timestamp as an `int` if the ID is the only parameter; instead if `return_string` is set to `True`, it returns a `str` in the format `DD-MM-YYYY HH:MM:SS`.  
@@ -24,7 +24,7 @@ It's still a WIP, so be careful.
 `Nhentai().book_characters(book_id, return_string = False)`: Gets the characters in a book, the result is alphabetically sorted. Returns `list` if the ID is the only parameter; instead if `return_string` is set to `True`, it returns a `str`. If there is no info about the characters, the only content of the list is `no character info`.  
 
 
-Exceptions in case of 404 or invalid input are NOT handled, I suggest using the `id_exists()` function to check for 404s. Some functions in case of a request error give this output: `{"error": True}`. This behavior is the same output that nHentai APIs give on error. The only exception raising I implemented is when the parameter of `Nhentai().all()` is bigger than the number of actual pages on the website. Let me know if those things are not good practice.  
+Exceptions in case of 404 or invalid input are NOT handled, I suggest using the `id_exists()` function to check for 404s. Some functions in case of a request error give this output: `{"error": True}`. This behavior is the same output that nHentai APIs give on error. The only exception raising I implemented is when the parameter of `Nhentai().all()` is bigger than the number of actual pages on the website. Let me know if these things are not good practice.  
 
 ### TODO
 + Use objects instead of dicts. Which means don't use this wrapper expecting for things not to change.  
