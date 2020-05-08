@@ -10,6 +10,8 @@ It's still a WIP, so be careful.
 `Nhentai().latest_id()`: Returns the ID of the latest uploaded doujin. Useful for random generators. Returns `int`.  
 `Nhentai().query_search(user_query, page_num=1)`: Performs a search. Put your keywords in `user_query`; to get the other pages, use the `page_num` parameter. Returns `dict`.  
 `Nhentai().book_info(book_id)`: Gets all the info about a magic number of your choice, like `177013`. Returns `dict`.  
+`Nhentai().book_cover(book_id)`: Gets the URL of the cover of a book (a `.jpg` image). Returns `str`.  
+
 
 In case of a request error (like 404 or similar) or invalid input, the output is `{"error": True}`. This behavior was chosen because it's the same output that nHentai APIs give on error. Let me know if it's not good practice.  
 
