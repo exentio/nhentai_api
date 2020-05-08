@@ -57,3 +57,11 @@ class Nhentai():
         media_id = self.book_info(book_id)["media_id"]
         cover_url = "https://t.nhentai.net/galleries/" + str(media_id) + "/cover.jpg"
         return cover_url
+
+    def book_tags(self, book_id):
+        raw_tags = self.book_info(book_id)["tags"]
+        tags = []
+        for tag in raw_tags:
+            if tag["type"] == "tag":
+                tags.append(tag["name"]) 
+        return sorted(tags)
