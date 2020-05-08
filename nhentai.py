@@ -79,11 +79,12 @@ class Nhentai():
     def book_pagenum(self, book_id):
         return self.book_info(book_id)["num_pages"]
 
-    def book_date(self, book_id, unix_ts = False):
+    def book_date(self, book_id, return_string = False):
         timestamp = self.book_info(book_id)["upload_date"]
-        if unix_ts:
-            return timestamp
-        return datetime.utcfromtimestamp(timestamp).strftime('%d-%m-%Y %H:%M:%S')
+
+        if return_string:
+            return datetime.utcfromtimestamp(timestamp).strftime('%d-%m-%Y %H:%M:%S')
+        return timestamp
 
     def book_tags(self, book_id, return_string = False):
         raw_tags = self.book_info(book_id)["tags"]

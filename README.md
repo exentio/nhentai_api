@@ -5,7 +5,7 @@ This wrapper uses the official (and poorly documented) nHentai APIs to get info 
 It's still a WIP, so be careful.
 
 ### Currently available methods
-`Nhentai().all(page_num=1)`: Returns all the books on nHentai's homepage; to get the other pages, use the `page_num` parameter. Returns `dict`. Throws exception if `page_num` is more than the actual available pages.  
+`Nhentai().all(page_num=1)`: Returns all the books on nHentai's homepage; to get the other pages, use the `page_num` parameter. Returns `dict`. Throws a `ValueError` exception if `page_num` is larger than the number of the actual available pages.  
 `Nhentai().latest()`: Returns info about the latest uploaded book. Returns `dict`.  
 `Nhentai().latest_id()`: Returns the ID of the latest uploaded book. Useful for random generators. Returns `int`.  
 `Nhentai().id_exists(book_id)`: Checks the existence of a book by ID. Returns `bool`.  
@@ -15,7 +15,7 @@ It's still a WIP, so be careful.
 `Nhentai().book_title_jp(book_id)`: Gets the book title, japanese format. Returns `str`.  
 `Nhentai().book_cover(book_id)`: Gets the URL of the cover of a book (a `.jpg` image). Returns `str`.  
 `Nhentai().book_pagenum(book_id)`: Gets the number of pages of a book. Returns `int`.  
-`Nhentai().book_date(book_id, unix_ts = False)`: Gets the date of a book. Returns `str` in the format `DD-MM-YYYY HH:MM:SS` if the ID is the only parameter; instead if `unix_ts` is set to `True`, it returns an Unix timestamp as an `int`.  
+`Nhentai().book_date(book_id, return_string = False)`: Gets the date of a book. Returns an Unix timestamp as an `int` if the ID is the only parameter; instead if `return_string` is set to `True`, it returns a `str` in the format `DD-MM-YYYY HH:MM:SS`.  
 `Nhentai().book_tags(book_id, return_string = False)`: Gets all the tags of a book, the result is alphabetically sorted. Returns `list` if the ID is the only parameter; instead if `return_string` is set to `True`, it returns a `str`.  
 `Nhentai().book_artists(book_id, return_string = False)`: Gets the artists of a book, the result is alphabetically sorted. Returns `list` if the ID is the only parameter; instead if `return_string` is set to `True`, it returns a `str`. If the artist is missing, the only content of the list is `no artist`.  
 `Nhentai().book_parodies(book_id, return_string = False)`: Gets all the parodies associated to the book, the result is alphabetically sorted. Returns `list` if the ID is the only parameter; instead if `return_string` is set to `True`, it returns a `str`. If the info about parodies is not available, the only content of the list is `no parodies`.  
