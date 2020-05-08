@@ -2,7 +2,6 @@ Python wrapper for nHentai APIs
 ===
 
 This wrapper uses the official (and poorly documented) nHentai APIs to get info about the content of your favorite website.  
-It's still a WIP, so be careful.  
 
 [Documentation in the wiki.](https://github.com/exentio/nhentai_api/wiki)
 
