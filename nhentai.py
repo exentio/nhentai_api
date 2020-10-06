@@ -90,6 +90,13 @@ class Nhentai():
             return datetime.utcfromtimestamp(timestamp).strftime('%d-%m-%Y %H:%M:%S')
         return timestamp
 
+    def book_category(self, book_id):
+        raw_tags = self.book_info(book_id)["tags"]
+        tags = []
+        for tag in raw_tags:
+            if tag["type"] == "category": 
+                return tag["name"]
+
     def book_tags(self, book_id, return_string = False):
         raw_tags = self.book_info(book_id)["tags"]
         tags = []
